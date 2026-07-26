@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntellSoft TypeMaster | آموزش تایپ سریع</title>
+<style>
+/* ===== CSS VARIABLES & THEMES ===== */
+:root {
+  --transition-speed: 0.3s;
+  --font-main: 'Segoe UI', Tahoma, Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Theme: Warm Light (Scientifically optimized - reduced blue, warm spectrum) */
+[data-theme="warm-light"] {
+  --bg-primary: #FFF9F0;
+  --bg-secondary: #FFF3E4;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFF8F0;
+  --text-primary: #2D2A26;
+  --text-secondary: #5C564E;
+  --text-muted: #8A8279;
+  --accent: #E07A3F;
+  --accent-hover: #C96A32;
+  --accent-light: #FDEEE3;
+  --success: #4A9E6B;
+  --error: #D45B5B;
+  --border: #E8DFD4;
+  --key-bg: #FFFFFF;
+  --key-border: #D4C9BC;
+  --key-active: #E07A3F;
+  --key-text: #2D2A26;
+  --shadow-color: rgba(180, 160, 130, 0.15);
+  --overlay: rgba(255, 249, 240, 0.95);
+  --webcam-border: #E07A3F;
+  --progress-bg: #EDE6DC;
+  --glow: rgba(224, 122, 63, 0.2);
+}
+
+/* Theme: Dark Warm (Reduced blue light, warm dark - proven to reduce melatonin suppression) */
+[data-theme="dark-warm"] {
+  --bg-primary: #1A1714;
+  --bg-secondary: #231F1B;
+  --bg-card: #2A2520;
+  --bg-input: #332E28;
+  --text-primary: #E8DFD4;
+  --text-secondary: #B8AFA4;
+  --text-muted: #7A7268;
+  --accent: #E8935A;
+  --accent-hover: #F0A46E;
+  --accent-light: #3A2E24;
+  --success: #6BBF8A;
+  --error: #E87070;
+  --border: #3D362E;
+  --key-bg: #332E28;
+  --key-border: #4A4238;
+  --key-active: #E8935A;
+  --key-text: #E8DFD4;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --overlay: rgba(26, 23, 20, 0.95);
+  --webcam-border: #E8935A;
+  --progress-bg: #3D362E;
+  --glow: rgba(232, 147, 90, 0.15);
+}
+
+/* Theme: Sepia (Classic eye-comfort - research-backed for extended reading) */
+[data-theme="sepia"] {
+  --bg-primary: #F4ECD8;
+  --bg-secondary: #EDE3CC;
+  --bg-card: #FAF5E8;
+  --bg-input: #F7F0DE;
+  --text-primary: #3B3226;
+  --text-secondary: #5E5344;
+  --text-muted: #8A7D6B;
+  --accent: #B8860B;
+  --accent-hover: #9A7209;
+  --accent-light: #F0E6C8;
+  --success: #5B8C5A;
+  --error: #C0504D;
+  --border: #D4C9A8;
+  --key-bg: #FAF5E8;
+  --key-border: #C9BC9E;
+  --key-active: #B8860B;
+  --key-text: #3B3226;
+  --shadow-color: rgba(140, 120, 80, 0.12);
+  --overlay: rgba(244, 236, 216, 0.95);
+  --webcam-border: #B8860B;
+  --progress-bg: #D4C9A8;
+  --glow: rgba(184, 134, 11, 0.15);
+}
+
+/* Theme: Night Blue-Filter (Maximum blue light reduction - for nighttime use) */
+[data-theme="night-filter"] {
+  --bg-primary: #1C1408;
+  --bg-secondary: #261C0E;
+  --bg-card: #2E2214;
+  --bg-input: #382A1A;
+  --text-primary: #F0D9A8;
+  --text-secondary: #C4A870;
+  --text-muted: #8A7448;
+  --accent: #F0A830;
+  --accent-hover: #FFB840;
+  --accent-light: #3A2C14;
+  --success: #90B860;
+  --error: #E07050;
+  --border: #4A3A20;
+  --key-bg: #382A1A;
+  --key-border: #5A4828;
+  --key-active: #F0A830;
+  --key-text: #F0D9A8;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --overlay: rgba(28, 20, 8, 0.95);
+  --webcam-border: #F0A830;
+  --progress-bg: #4A3A20;
+  --glow: rgba(240, 168, 48, 0.12);
+}
+
+/* Theme: Solarized (Ethan Schoonover's scientifically designed palette) */
+[data-theme="solarized"] {
+  --bg-primary: #FDF6E3;
+  --bg-secondary: #EEE8D5;
+  --bg-card: #FDF6E3;
+  --bg-input: #EEE8D5;
+  --text-primary: #657B83;
+  --text-secondary: #586E75;
+  --text-muted: #93A1A1;
+  --accent: #B58900;
+  --accent-hover: #CB9A00;
+  --accent-light: #EEE8D5;
+  --success: #859900;
+  --error: #DC322F;
+  --border: #DDD6C1;
+  --key-bg: #EEE8D5;
+  --key-border: #CCC5B0;
+  --key-active: #B58900;
+  --key-text: #657B83;
+  --shadow-color: rgba(101, 123, 131, 0.1);
+  --overlay: rgba(253, 246, 227, 0.95);
+  --webcam-border: #B58900;
+  --progress-bg: #DDD6C1;
+  --glow: rgba(181, 137, 0, 0.12);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+/* ===== LAYOUT ===== */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: white;
+  font-weight: bold;
+}
+
+.logo-text h1 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.logo-text span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+/* ===== THEME SELECTOR ===== */
+.theme-selector {
+  position: relative;
+}
+
+.theme-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  z-index: 100;
+  display: none;
+  min-width: 220px;
+}
+
+.theme-dropdown.active { display: block; }
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  transition: background 0.2s;
+}
+
+.theme-option:hover { background: var(--accent-light); }
+
+.theme-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+/* ===== NAVIGATION TABS ===== */
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  background: var(--bg-card);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.nav-tab {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+  transition: all 0.2s;
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+}
+
+.nav-tab:hover { background: var(--accent-light); color: var(--accent); }
+.nav-tab.active { background: var(--accent); color: white; }
+
+/* ===== SECTIONS ===== */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== TYPING AREA ===== */
+.typing-display {
+  background: var(--bg-input);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  line-height: 2;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  min-height: 100px;
+  direction: ltr;
+  text-align: left;
+  word-wrap: break-word;
+  transition: border-color 0.3s;
+}
+
+.typing-display.rtl-mode {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-main);
+}
+
+.typing-display .char { transition: color 0.1s; }
+.typing-display .char.correct { color: var(--success); }
+.typing-display .char.incorrect { color: var(--error); text-decoration: underline; }
+.typing-display .char.current {
+  background: var(--accent);
+  color: white;
+  border-radius: 3px;
+  padding: 0 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+.typing-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  background: var(--bg-input);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.3s;
+  direction: ltr;
+}
+
+.typing-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+.typing-input.rtl-mode { direction: rtl; font-family: var(--font-main); }
+
+/* ===== STATS ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-item {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-container {
+  background: var(--progress-bg);
+  border-radius: 20px;
+  height: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  border-radius: 20px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+/* ===== KEYBOARD ===== */
+.keyboard-container {
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 700px;
+  margin: 0 auto;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.key {
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--key-bg);
+  border: 1px solid var(--key-border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--key-text);
+  transition: all 0.15s;
+  user-select: none;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.key.active {
+  background: var(--key-active);
+  color: white;
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.key.highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+}
+
+.key-space { min-width: 300px; }
+.key-wide { min-width: 70px; }
+.key-wider { min-width: 90px; }
+
+/* ===== LESSON SELECTOR ===== */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.lesson-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lesson-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.lesson-card.completed { border-color: var(--success); }
+.lesson-card.locked { opacity: 0.5; pointer-events: none; }
+
+.lesson-number {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-card.completed .lesson-number { background: var(--success); }
+
+.lesson-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+.lesson-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ===== WEBCAM SECTION ===== */
+.webcam-container {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 3px solid var(--webcam-border);
+}
+
+.webcam-video {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transform: scaleX(-1);
+}
+
+.webcam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.gaze-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+}
+
+.gaze-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background 0.3s;
+}
+
+.gaze-dot.monitor { background: var(--success); }
+.gaze-dot.keyboard { background: var(--error); }
+
+.gaze-text { font-size: 0.9rem; }
+
+.gaze-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gaze-stat {
+  text-align: center;
+  padding: 0.75rem;
+  background: var(--bg-input);
+  border-radius: 8px;
+}
+
+.gaze-stat-value { font-size: 1.4rem; font-weight: bold; }
+.gaze-stat-label { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== EYE CARE PANEL ===== */
+.eye-care-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.eye-care-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eye-tip {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.eye-tip:last-child { border-bottom: none; }
+
+/* ===== 20-20-20 REMINDER ===== */
+.reminder-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.reminder-overlay.active { display: flex; }
+
+.reminder-box {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.reminder-icon { font-size: 3rem; margin-bottom: 1rem; }
+.reminder-text { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.reminder-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+.footer-text { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  transition: all 0.2s;
+}
+
+.lang-btn.active { background: var(--accent); color: white; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .app-container { padding: 0.5rem; }
+  .header { padding: 0.75rem 1rem; }
+  .logo-text h1 { font-size: 1rem; }
+  .typing-display { font-size: 1.1rem; padding: 1rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .keyboard { min-width: 100%; }
+  .key { min-width: 28px; height: 34px; font-size: 0.7rem; }
+  .key-space { min-width: 150px; }
+  .key-wide { min-width: 45px; }
+  .key-wider { min-width: 55px; }
+  .webcam-video { width: 100%; }
+  .nav-tab { min-width: 70px; font-size: 0.8rem; padding: 0.5rem 0.6rem; }
+  .lessons-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .header-controls { width: 100%; justify-content: center; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .stat-item { padding: 0.75rem 0.5rem; }
+  .stat-value { font-size: 1.4rem; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section.active { animation: fadeIn 0.3s ease; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse { animation: pulse 0.3s ease; }
+
+/* ===== SOUND TOGGLE ===== */
+.sound-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  display: inline-block;
+}
+
+.sound-indicator.muted { background: var(--error); }
+
+/* ===== TOOLTIP ===== */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.tooltip:hover::after { opacity: 1; }
+
+/* ===== LEVEL BADGE ===== */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+</style>
+</head>
+<body data-theme="warm-light">
+
+<div class="app-container">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">⌨</div>
+      <div class="logo-text">
+        <h1>IntellSoft TypeMaster</h1>
+        <span>آموزش حرفه‌ای تایپ سریع</span>
+      </div>
+    </div>
+    <div class="header-controls">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('fa')">فارسی</button>
+        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+      <button class="btn btn-sm" onclick="toggleSound()" id="soundBtn">
+        <span class="sound-indicator" id="soundDot"></span>
+        <span id="soundLabel">صدا</span>
+      </button>
+      <div class="theme-selector">
+        <button class="btn btn-sm" onclick="toggleThemeDropdown()">🎨 <span data-i18n="theme">تم</span></button>
+        <div class="theme-dropdown" id="themeDropdown">
+          <div class="theme-option" onclick="setTheme('warm-light')">
+            <span class="theme-swatch" style="background:#FFF9F0;border-color:#E07A3F"></span>
+            <span>روشن گرم (روز)</span>
+          </div>
+          <div class="theme-option" onclick="setTheme('dark-warm')">
+            <span class="theme-swatch" style="background:#1A1714;border-color:#E8935A"></span>
+            <span>تاریک گرم (شب)</span>
+          </div>
+          <div class="theme-option" onclick="setTheme('sepia')">
+            <span class="theme-swatch" style="background:#F4ECD8;border-color:#B8860B"></span>
+            <span>سپیا (مطالعه)</span>
+          </div>
+          <div class="theme-option" onclick="setTheme('night-filter')">
+            <span class="theme-swatch" style="background:#1C1408;border-color:#F0A830"></span>
+            <span>فیلتر آبی (شبانه)</span>
+          </div>
+          <div class="theme-option" onclick="setTheme('solarized')">
+            <span class="theme-swatch" style="background:#FDF6E3;border-color:#B58900"></span>
+            <span>سولارایزد</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('lessons')" data-i18n="nav_lessons">📚 درس‌ها</button>
+    <button class="nav-tab" onclick="showSection('practice')" data-i18n="nav_practice">⌨ تمرین</button>
+    <button class="nav-tab" onclick="showSection('webcam')" data-i18n="nav_webcam">📷 وب‌کم</button>
+    <button class="nav-tab" onclick="showSection('eyecare')" data-i18n="nav_eyecare">👁 مراقبت چشم</button>
+    <button class="nav-tab" onclick="showSection('stats')" data-i18n="nav_stats">📊 آمار</button>
+  </nav>
+
+  <!-- LESSONS SECTION -->
+  <section class="section active" id="section-lessons">
+    <div class="card">
+      <div class="card-title">📚 <span data-i18n="lessons_title">درس‌های تایپ</span></div>
+      <div class="lang-toggle" style="margin-bottom:1rem;display:inline-flex">
+        <button class="lang-btn active" id="lessonLangFa" onclick="setLessonLang('fa')">فارسی</button>
+        <button class="lang-btn" id="lessonLangEn" onclick="setLessonLang('en')">لاتین</button>
+      </div>
+      <div class="lessons-grid" id="lessonsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PRACTICE SECTION -->
+  <section class="section" id="section-practice">
+    <div class="card">
+      <div class="card-title">
+        ⌨ <span data-i18n="practice_title">تمرین تایپ</span>
+        <span class="level-badge" id="currentLevelBadge">درس ۱</span>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="lessonProgress"></div>
+      </div>
+      <div class="typing-display" id="typingDisplay"></div>
+      <input type="text" class="typing-input" id="typingInput" placeholder="اینجا تایپ کنید..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="wpmValue">0</div>
+          <div class="stat-label" data-i18n="stat_wpm">کلمه/دقیقه</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="accuracyValue">100%</div>
+          <div class="stat-label" data-i18n="stat_accuracy">دقت</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="timeValue">0:00</div>
+          <div class="stat-label" data-i18n="stat_time">زمان</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="errorsValue">0</div>
+          <div class="stat-label" data-i18n="stat_errors">خطاها</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem">
+        <button class="btn btn-primary" onclick="restartLesson()">🔄 <span data-i18n="btn_restart">شروع مجدد</span></button>
+        <button class="btn" onclick="nextLesson()">⏭ <span data-i18n="btn_next">درس بعد</span></button>
+      </div>
+    </div>
+
+    <!-- KEYBOARD -->
+    <div class="card">
+      <div class="card-title">🎹 <span data-i18n="keyboard_title">صفحه‌کلید مجازی</span></div>
+      <div class="keyboard-container">
+        <div class="keyboard" id="virtualKeyboard"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEBCAM SECTION -->
+  <section class="section" id="section-webcam">
+    <div class="card">
+      <div class="card-title">📷 <span data-i18n="webcam_title">تشخیص نگاه (وب‌کم)</span></div>
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1rem" data-i18n="webcam_desc">
+        با فعال‌سازی وب‌کم، سیستم تشخیص می‌دهد که آیا به مانیتور نگاه می‌کنید یا به صفحه‌کلید. این قابلیت به شما کمک می‌کند عادت نگاه کردن به صفحه‌کلید را ترک کنید.
+      </p>
+      <button class="btn btn-primary" onclick="startWebcam()" id="webcamStartBtn">📷 <span data-i18n="btn_start_webcam">فعال‌سازی وب‌کم</span></button>
+      <button class="btn" onclick="stopWebcam()" id="webcamStopBtn" style="display:none">⏹ <span data-i18n="btn_stop_webcam">توقف</span></button>
+      <div style="margin-top:1rem;text-align:center">
+        <div class="webcam-container" id="webcamContainer" style="display:none">
+          <video class="webcam-video" id="webcamVideo" autoplay playsinline muted></video>
+          <canvas id="webcamCanvas" style="display:none"></canvas>
+        </div>
+        <div class="webcam-overlay" id="webcamPlaceholder">
+          <span data-i18n="webcam_placeholder">وب‌کم غیرفعال است</span>
+        </div>
+      </div>
+      <div class="gaze-indicator" id="gazeIndicator" style="display:none">
+        <div class="gaze-dot" id="gazeDot"></div>
+        <span class="gaze-text" id="gazeText" data-i18n="gaze_waiting">در انتظار تشخیص...</span>
+      </div>
+      <div class="gaze-stats" id="gazeStats" style="display:none">
+        <div class="gaze-stat">
+          <div class="gaze-stat-value" id="monitorTime" style="color:var(--success)">0%</div>
+          <div class="gaze-stat-label" data-i18n="gaze_monitor">نگاه به مانیتور</div>
+        </div>
+        <div class="gaze-stat">
+          <div class="gaze-stat-value" id="keyboardTime" style="color:var(--error)">0%</div>
+          <div class="gaze-stat-label" data-i18n="gaze_keyboard">نگاه به صفحه‌کلید</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EYE CARE SECTION -->
+  <section class="section" id="section-eyecare">
+    <div class="card">
+      <div class="card-title">👁 <span data-i18n="eyecare_title">مراقبت علمی از چشم</span></div>
+      <div class="eye-care-panel">
+        <div class="eye-care-title">🔬 اصول علمی محافظت از چشم</div>
+        <div class="eye-tip">💡 <span data-i18n="tip1">قانون ۲۰-۲۰-۲۰: هر ۲۰ دقیقه، ۲۰ ثانیه به فاصله ۲۰ فوت (۶ متر) نگاه کنید.</span></div>
+        <div class="eye-tip">🌡 <span data-i18n="tip2">نور آبی (۴۰۰-۴۹۰nm) بیشترین آسیب را به شبکیه می‌زند. تم‌های گرم این نرم‌افزار نور آبی را کاهش می‌دهند.</span></div>
+        <div class="eye-tip">📐 <span data-i18n="tip3">فاصله مناسب از مانیتور: ۵۰ تا ۷۰ سانتی‌متر. بالای مانیتور هم‌سطح یا کمی پایین‌تر از چشم باشد.</span></div>
+        <div class="eye-tip">💧 <span data-i18n="tip4">پلک زدن منظم: هنگام کار با کامپیوتر، تعداد پلک زدن ۶۰٪ کاهش می‌یابد. آگاهانه پلک بزنید.</span></div>
+        <div class="eye-tip">🔆 <span data-i18n="tip5">روشنایی صفحه باید با روشنایی محیط مطابقت داشته باشد. نه خیلی روشن‌تر، نه خیلی تاریک‌تر.</span></div>
+        <div class="eye-tip">🎨 <span data-i18n="tip6">کنتراست بهینه: نسبت کنتراست ۴.۵:۱ تا ۷:۱ برای مطالعه طولانی مناسب است (استاندارد WCAG).</span></div>
+        <div class="eye-tip">🌙 <span data-i18n="tip7">در شب از تم «فیلتر آبی» استفاده کنید. تحقیقات نشان داده نور آبی شبانه ترشح ملاتونین را تا ۵۰٪ سرکوب می‌کند.</span></div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.9rem">
+          <input type="checkbox" id="reminderToggle" checked onchange="toggleReminder()">
+          <span data-i18n="reminder_label">یادآور ۲۰-۲۰-۲۰ (هر ۲۰ دقیقه)</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="section" id="section-stats">
+    <div class="card">
+      <div class="card-title">📊 <span data-i18n="stats_title">آمار پیشرفت</span></div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="totalLessons">0</div>
+          <div class="stat-label" data-i18n="stat_lessons_done">درس تکمیل‌شده</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="bestWpm">0</div>
+          <div class="stat-label" data-i18n="stat_best_wpm">بهترین سرعت</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="avgAccuracy">0%</div>
+          <div class="stat-label" data-i18n="stat_avg_acc">میانگین دقت</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="totalTime">0:00</div>
+          <div class="stat-label" data-i18n="stat_total_time">زمان کل تمرین</div>
+        </div>
+      </div>
+      <div style="margin-top:1rem">
+        <div class="card-title" style="font-size:0.95rem">📈 تاریخچه جلسات</div>
+        <div id="sessionHistory" style="font-size:0.85rem;color:var(--text-secondary)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="https://intellsoft.ir" target="_blank" rel="noopener">🌐 intellsoft.ir</a>
+    <div class="footer-text">
+      طراحی و توسعه: <a href="https://intellsoft.ir" target="_blank" rel="noopener">علی عباسپور</a> | IntellSoft
+    </div>
+    <div class="footer-text" style="margin-top:0.3rem;font-size:0.75rem">
+      © ۲۰۲۶ - تمامی حقوق محفوظ است
+    </div>
+  </footer>
+</div>
+
+<!-- 20-20-20 REMINDER OVERLAY -->
+<div class="reminder-overlay" id="reminderOverlay">
+  <div class="reminder-box">
+    <div class="reminder-icon">👁</div>
+    <div class="reminder-text" data-i18n="reminder_title">زمان استراحت چشم!</div>
+    <div class="reminder-sub" data-i18n="reminder_sub">به مدت ۲۰ ثانیه به فاصله ۶ متری نگاه کنید</div>
+    <div id="reminderCountdown" style="font-size:2rem;font-weight:bold;color:var(--accent);margin:1rem 0">20</div>
+    <button class="btn btn-primary" onclick="closeReminder()" data-i18n="reminder_close">ادامه می‌دهم</button>
+  </div>
+</div>
+
+<script>
+// ===== APPLICATION STATE =====
+const state = {
+  language: 'fa',
+  lessonLang: 'fa',
+  currentLesson: 0,
+  theme: 'warm-light',
+  soundEnabled: true,
+  webcamActive: false,
+  gazeData: { monitor: 0, keyboard: 0, total: 0 },
+  typing: { text: '', pos: 0, errors: 0, startTime: null, completed: false },
+  stats: { lessonsCompleted: 0, bestWpm: 0, totalAccuracy: 0, sessions: 0, totalTime: 0 },
+  reminderEnabled: true,
+  reminderInterval: null,
+  audioCtx: null
+};
+
+// ===== LESSONS DATA =====
+const lessons = {
+  fa: [
+    { title: 'حروف پایه - ردیف وسط', desc: 'ت، ی، ب، س، ش، م، ک، گ', text: 'تبسم سکوت مشتاق بیست و سه گام بلند' },
+    { title: 'حروف ردیف بالا', desc: 'ف، ق، ر، د، پ، و، ج، چ', text: 'پدر فردا به شهر قدیم رفت و چای خرید' },
+    { title: 'حروف ردیف پایین', desc: 'ظ، ط، ز، ر، ذ، خ، ص، ث', text: 'طوطی سبز روی شاخه نشست و آواز خواند' },
+    { title: 'کلمات ساده', desc: 'تمرین کلمات دو و سه حرفی', text: 'من به خانه رفتم و کتاب خواندم و غذا خوردم' },
+    { title: 'جملات کوتاه', desc: 'تایپ جملات کامل', text: 'آسمان آبی است و خورشید می درخشد و پرنده ها آواز می خوانند' },
+    { title: 'متن ادبی', desc: 'تایپ متن ادبی فارسی', text: 'زندگی صحنه ی یکتای هنرمندی ماست هر کسی نغمه خود خواند و از صحنه رود' },
+    { title: 'اعداد و علائم', desc: 'تایپ اعداد و نشانه‌ها', text: 'سال ۱۴۰۵ - تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ - قیمت: ۹۸,۵۰۰ تومان' },
+    { title: 'متن پیشرفته', desc: 'تایپ سریع متن طولانی', text: 'فناوری اطلاعات تحولی بزرگ در زندگی بشر ایجاد کرده است و هر روز بر سرعت این تحول افزوده می شود' }
+  ],
+  en: [
+    { title: 'Home Row Basics', desc: 'a, s, d, f, j, k, l, ;', text: 'a sad lad had a flask of salad and a glass of water' },
+    { title: 'Top Row Keys', desc: 'q, w, e, r, t, y, u, i, o, p', text: 'the quick brown fox jumps over the lazy dog near the river' },
+    { title: 'Bottom Row Keys', desc: 'z, x, c, v, b, n, m', text: 'zebras and foxes mix with vibrant colors in the amazing jungle' },
+    { title: 'Common Words', desc: 'Practice common English words', text: 'the world is a beautiful place where people work and play together every day' },
+    { title: 'Short Sentences', desc: 'Type complete sentences', text: 'She sells sea shells by the sea shore while the sun shines bright' },
+    { title: 'Capital Letters', desc: 'Practice shift key usage', text: 'The Quick Brown Fox Jumps Over The Lazy Dog In New York City' },
+    { title: 'Numbers & Symbols', desc: 'Type numbers and punctuation', text: 'Call 555-0123 or email test@example.com for orders over $99.99!' },
+    { title: 'Advanced Text', desc: 'Fast typing of long passages', text: 'Technology has transformed the way we communicate and work making the world a smaller and more connected place for everyone' }
+  ]
+};
+
+// ===== KEYBOARD LAYOUTS =====
+const keyboardLayouts = {
+  en: [
+    ['`','1','2','3','4','5','6','7','8','9','0','-','='],
+    ['q','w','e','r','t','y','u','i','o','p','[',']','\\'],
+    ['a','s','d','f','g','h','j','k','l',';',"'"],
+    ['z','x','c','v','b','n','m',',','.','/']
+  ],
+  fa: [
+    ['\u200D','۱','۲','۳','۴','۵','۶','۷','۸','۹','۰','-','='],
+    ['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ج','چ'],
+    ['ش','س','ی','ب','ل','ا','ت','ن','م','ک','گ'],
+    ['ظ','ط','ز','ر','ذ','د','پ','و','.','/']
+  ]
+};
+
+// ===== i18n =====
+const i18n = {
+  fa: {
+    theme: 'تم', nav_lessons: '📚 درس‌ها', nav_practice: '⌨ تمرین', nav_webcam: '📷 وب‌کم',
+    nav_eyecare: '👁 مراقبت چشم', nav_stats: '📊 آمار', lessons_title: 'درس‌های تایپ',
+    practice_title: 'تمرین تایپ', keyboard_title: 'صفحه‌کلید مجازی', webcam_title: 'تشخیص نگاه (وب‌کم)',
+    eyecare_title: 'مراقبت علمی از چشم', stats_title: 'آمار پیشرفت',
+    stat_wpm: 'کلمه/دقیقه', stat_accuracy: 'دقت', stat_time: 'زمان', stat_errors: 'خطاها',
+    btn_restart: 'شروع مجدد', btn_next: 'درس بعد', btn_start_webcam: 'فعال‌سازی وب‌کم',
+    btn_stop_webcam: 'توقف', webcam_placeholder: 'وب‌کم غیرفعال است',
+    gaze_waiting: 'در انتظار تشخیص...', gaze_monitor: 'نگاه به مانیتور', gaze_keyboard: 'نگاه به صفحه‌کلید',
+    reminder_label: 'یادآور ۲۰-۲۰-۲۰ (هر ۲۰ دقیقه)', reminder_title: 'زمان استراحت چشم!',
+    reminder_sub: 'به مدت ۲۰ ثانیه به فاصله ۶ متری نگاه کنید', reminder_close: 'ادامه می‌دهم',
+    stat_lessons_done: 'درس تکمیل‌شده', stat_best_wpm: 'بهترین سرعت', stat_avg_acc: 'میانگین دقت',
+    stat_total_time: 'زمان کل تمرین', input_placeholder: 'اینجا تایپ کنید...',
+    gaze_monitor_text: '✅ نگاه به مانیتور - عالی!', gaze_keyboard_text: '⚠️ نگاه به صفحه‌کلید - به مانیتور نگاه کنید',
+    lesson_complete: '🎉 درس تکمیل شد!', wpm_result: 'سرعت شما:', acc_result: 'دقت شما:'
+  },
+  en: {
+    theme: 'Theme', nav_lessons: '📚 Lessons', nav_practice: '⌨ Practice', nav_webcam: '📷 Webcam',
+    nav_eyecare: '👁 Eye Care', nav_stats: '📊 Stats', lessons_title: 'Typing Lessons',
+    practice_title: 'Typing Practice', keyboard_title: 'Virtual Keyboard', webcam_title: 'Gaze Detection (Webcam)',
+    eyecare_title: 'Scientific Eye Care', stats_title: 'Progress Statistics',
+    stat_wpm: 'WPM', stat_accuracy: 'Accuracy', stat_time: 'Time', stat_errors: 'Errors',
+    btn_restart: 'Restart', btn_next: 'Next Lesson', btn_start_webcam: 'Start Webcam',
+    btn_stop_webcam: 'Stop', webcam_placeholder: 'Webcam is off',
+    gaze_waiting: 'Waiting for detection...', gaze_monitor: 'Looking at Monitor', gaze_keyboard: 'Looking at Keyboard',
+    reminder_label: '20-20-20 Reminder (every 20 min)', reminder_title: 'Eye Break Time!',
+    reminder_sub: 'Look at something 20 feet away for 20 seconds', reminder_close: 'Continue',
+    stat_lessons_done: 'Lessons Done', stat_best_wpm: 'Best WPM', stat_avg_acc: 'Avg Accuracy',
+    stat_total_time: 'Total Practice Time', input_placeholder: 'Type here...',
+    gaze_monitor_text: '✅ Looking at monitor - Great!', gaze_keyboard_text: '⚠️ Looking at keyboard - Look at the screen',
+    lesson_complete: '🎉 Lesson Complete!', wpm_result: 'Your speed:', acc_result: 'Your accuracy:'
+  }
+};
+
+// ===== AUDIO ENGINE (Web Audio API - No external files) =====
+function initAudio() {
+  if (!state.audioCtx) {
+    state.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (state.audioCtx.state === 'suspended') {
+    state.audioCtx.resume();
+  }
+}
+
+function playTone(freq, duration, type = 'sine', volume = 0.15) {
+  if (!state.soundEnabled) return;
+  initAudio();
+  const ctx = state.audioCtx;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, ctx.currentTime);
+  gain.gain.setValueAtTime(volume, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + duration);
+}
+
+function playKeySound() { playTone(800 + Math.random() * 200, 0.05, 'square', 0.06); }
+function playCorrectSound() { playTone(880, 0.08, 'sine', 0.1); }
+function playErrorSound() { playTone(220, 0.15, 'sawtooth', 0.1); }
+function playCompleteSound() {
+  playTone(523, 0.15, 'sine', 0.12);
+  setTimeout(() => playTone(659, 0.15, 'sine', 0.12), 150);
+  setTimeout(() => playTone(784, 0.2, 'sine', 0.12), 300);
+  setTimeout(() => playTone(1047, 0.3, 'sine', 0.12), 450);
+}
+
+function toggleSound() {
+  state.soundEnabled = !state.soundEnabled;
+  document.getElementById('soundDot').classList.toggle('muted', !state.soundEnabled);
+  document.getElementById('soundLabel').textContent = state.soundEnabled ?
+    (state.language === 'fa' ? 'صدا' : 'Sound') :
+    (state.language === 'fa' ? 'بی‌صدا' : 'Muted');
+}
+
+// ===== THEME MANAGEMENT =====
+function setTheme(theme) {
+  state.theme = theme;
+  document.body.setAttribute('data-theme', theme);
+  document.getElementById('themeDropdown').classList.remove('active');
+  localStorage.setItem('tm_theme', theme);
+}
+
+function toggleThemeDropdown() {
+  document.getElementById('themeDropdown').classList.toggle('active');
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.theme-selector')) {
+    document.getElementById('themeDropdown').classList.remove('active');
+  }
+});
+
+// ===== LANGUAGE =====
+function setLanguage(lang) {
+  state.language = lang;
+  document.querySelectorAll('.lang-toggle .lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  applyI18n();
+  renderLessons();
+  renderKeyboard();
+}
+
+function applyI18n() {
+  const t = i18n[state.language];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+  document.getElementById('typingInput').placeholder = t.input_placeholder;
+}
+
+// ===== NAVIGATION =====
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('section-' + name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'practice') {
+    document.getElementById('typingInput').focus();
+  }
+}
+
+// ===== LESSONS =====
+function setLessonLang(lang) {
+  state.lessonLang = lang;
+  document.getElementById('lessonLangFa').classList.toggle('active', lang === 'fa');
+  document.getElementById('lessonLangEn').classList.toggle('active', lang === 'en');
+  state.currentLesson = 0;
+  renderLessons();
+  loadLesson(0);
+}
+
+function renderLessons() {
+  const grid = document.getElementById('lessonsGrid');
+  const data = lessons[state.lessonLang];
+  grid.innerHTML = data.map((l, i) => {
+    const completed = i < state.stats.lessonsCompleted;
+    const locked = i > state.stats.lessonsCompleted;
+    return `<div class="lesson-card ${completed ? 'completed' : ''} ${locked ? 'locked' : ''}" onclick="selectLesson(${i})">
+      <div class="lesson-number">${completed ? '✓' : i + 1}</div>
+      <div class="lesson-title">${l.title}</div>
+      <div class="lesson-desc">${l.desc}</div>
+    </div>`;
+  }).join('');
+}
+
+function selectLesson(index) {
+  state.currentLesson = index;
+  loadLesson(index);
+  showSection('practice');
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab')[1].classList.add('active');
+}
+
+function loadLesson(index) {
+  const data = lessons[state.lessonLang];
+  if (index >= data.length) index = 0;
+  state.currentLesson = index;
+  state.typing = { text: data[index].text, pos: 0, errors: 0, startTime: null, completed: false };
+  document.getElementById('currentLevelBadge').textContent =
+    (state.language === 'fa' ? 'درس ' : 'Lesson ') + (index + 1);
+  renderTypingDisplay();
+  document.getElementById('typingInput').value = '';
+  document.getElementById('typingInput').className = 'typing-input' + (state.lessonLang === 'fa' ? ' rtl-mode' : '');
+  document.getElementById('typingDisplay').className = 'typing-display' + (state.lessonLang === 'fa' ? ' rtl-mode' : '');
+  updateStats();
+  renderKeyboard();
+}
+
+function renderTypingDisplay() {
+  const display = document.getElementById('typingDisplay');
+  const { text, pos } = state.typing;
+  let html = '';
+  for (let i = 0; i < text.length; i++) {
+    let cls = 'char';
+    if (i < pos) cls += ' correct';
+    else if (i === pos) cls += ' current';
+    html += `<span class="${cls}">${text[i] === ' ' ? '&nbsp;' : text[i]}</span>`;
+  }
+  display.innerHTML = html;
+}
+
+// ===== TYPING ENGINE =====
+document.getElementById('typingInput').addEventListener('input', function(e) {
+  if (state.typing.completed) return;
+  initAudio();
+
+  if (!state.typing.startTime) {
+    state.typing.startTime = Date.now();
+  }
+
+  const input = this.value;
+  const text = state.typing.text;
+  const pos = input.length - 1;
+
+  if (pos >= 0 && pos < text.length) {
+    if (input[pos] === text[pos]) {
+      playCorrectSound();
+    } else {
+      playErrorSound();
+      state.typing.errors++;
+    }
+    playKeySound();
+  }
+
+  state.typing.pos = input.length;
+  renderTypingDisplay();
+  highlightKey(input[input.length - 1]);
+  updateStats();
+
+  // Check completion
+  if (input.length >= text.length) {
+    completeLesson();
+  }
+
+  // Update progress
+  const progress = (input.length / text.length) * 100;
+  document.getElementById('lessonProgress').style.width = progress + '%';
+});
+
+document.getElementById('typingInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Backspace') {
+    // Allow backspace
+  }
+});
+
+function completeLesson() {
+  state.typing.completed = true;
+  playCompleteSound();
+
+  const elapsed = (Date.now() - state.typing.startTime) / 1000 / 60; // minutes
+  const words = state.typing.text.split(' ').length;
+  const wpm = Math.round(words / elapsed);
+  const accuracy = Math.max(0, Math.round(((state.typing.text.length - state.typing.errors) / state.typing.text.length) * 100));
+
+  // Update stats
+  state.stats.lessonsCompleted = Math.max(state.stats.lessonsCompleted, state.currentLesson + 1);
+  state.stats.bestWpm = Math.max(state.stats.bestWpm, wpm);
+  state.stats.totalAccuracy += accuracy;
+  state.stats.sessions++;
+  state.stats.totalTime += Math.round(elapsed * 60);
+
+  saveStats();
+  renderLessons();
+  updateGlobalStats();
+
+  const t = i18n[state.language];
+  setTimeout(() => {
+    alert(`${t.lesson_complete}\n${t.wpm_result} ${wpm} WPM\n${t.acc_result} ${accuracy}%`);
+  }, 300);
+}
+
+function updateStats() {
+  if (!state.typing.startTime) return;
+  const elapsed = (Date.now() - state.typing.startTime) / 1000;
+  const minutes = elapsed / 60;
+  const words = state.typing.pos / 5; // standard: 5 chars = 1 word
+  const wpm = minutes > 0 ? Math.round(words / minutes) : 0;
+  const accuracy = state.typing.pos > 0 ?
+    Math.round(((state.typing.pos - state.typing.errors) / state.typing.pos) * 100) : 100;
+
+  document.getElementById('wpmValue').textContent = wpm;
+  document.getElementById('accuracyValue').textContent = Math.max(0, accuracy) + '%';
+  document.getElementById('errorsValue').textContent = state.typing.errors;
+
+  const mins = Math.floor(elapsed / 60);
+  const secs = Math.floor(elapsed % 60);
+  document.getElementById('timeValue').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+function restartLesson() {
+  loadLesson(state.currentLesson);
+  document.getElementById('typingInput').focus();
+}
+
+function nextLesson() {
+  const data = lessons[state.lessonLang];
+  if (state.currentLesson < data.length - 1) {
+    loadLesson(state.currentLesson + 1);
+  } else {
+    loadLesson(0);
+  }
+  document.getElementById('typingInput').focus();
+}
+
+// ===== VIRTUAL KEYBOARD =====
+function renderKeyboard() {
+  const layout = keyboardLayouts[state.lessonLang];
+  const kb = document.getElementById('virtualKeyboard');
+  const rows = [
+    { keys: layout[0], extra: '' },
+    { keys: layout[1], extra: '' },
+    { keys: layout[2], extra: '' },
+    { keys: layout[3], extra: '' }
+  ];
+
+  let html = '';
+  rows.forEach((row, ri) => {
+    html += '<div class="keyboard-row">';
+    if (ri === 1) html += '<div class="key key-wide">Tab</div>';
+    if (ri === 2) html += '<div class="key key-wider">Caps</div>';
+    if (ri === 3) html += '<div class="key key-wider">Shift</div>';
+
+    row.keys.forEach(k => {
+      html += `<div class="key" data-key="${k}">${k}</div>`;
+    });
+
+    if (ri === 0) html += '<div class="key key-wide">⌫</div>';
+    if (ri === 1) html += '<div class="key key-wide">\\</div>';
+    if (ri === 2) html += '<div class="key key-wide">Enter</div>';
+    if (ri === 3) html += '<div class="key key-wide">Shift</div>';
+    html += '</div>';
+  });
+
+  // Space bar row
+  html += '<div class="keyboard-row">';
+  html += '<div class="key key-wide">Ctrl</div>';
+  html += '<div class="key key-wide">Alt</div>';
+  html += '<div class="key key-space" data-key=" ">Space</div>';
+  html += '<div class="key key-wide">Alt</div>';
+  html += '<div class="key key-wide">Ctrl</div>';
+  html += '</div>';
+
+  kb.innerHTML = html;
+}
+
+function highlightKey(char) {
+  if (!char) return;
+  document.querySelectorAll('.key').forEach(k => k.classList.remove('active'));
+  const key = document.querySelector(`.key[data-key="${char.toLowerCase()}"]`);
+  if (key) {
+    key.classList.add('active');
+    setTimeout(() => key.classList.remove('active'), 150);
+  }
+}
+
+// ===== WEBCAM & GAZE DETECTION =====
+let webcamStream = null;
+let gazeInterval = null;
+let faceDetector = null;
+
+async function startWebcam() {
+  try {
+    webcamStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user', width: 320, height: 240 }
+    });
+    const video = document.getElementById('webcamVideo');
+    video.srcObject = webcamStream;
+    state.webcamActive = true;
+
+    document.getElementById('webcamContainer').style.display = 'inline-block';
+    document.getElementById('webcamPlaceholder').style.display = 'none';
+    document.getElementById('webcamStartBtn').style.display = 'none';
+    document.getElementById('webcamStopBtn').style.display = 'inline-flex';
+    document.getElementById('gazeIndicator').style.display = 'flex';
+    document.getElementById('gazeStats').style.display = 'flex';
+
+    // Try Face Detection API
+    if ('FaceDetector' in window) {
+      faceDetector = new FaceDetector({ fastMode: true, maxDetectedFaces: 1 });
+    }
+
+    // Start gaze detection loop
+    gazeInterval = setInterval(detectGaze, 500);
+
+  } catch (err) {
+    alert(state.language === 'fa' ?
+      'دسترسی به وب‌کم ممکن نشد. لطفاً مجوز دوربین را بررسی کنید.' :
+      'Could not access webcam. Please check camera permissions.');
+  }
+}
+
+function stopWebcam() {
+  if (webcamStream) {
+    webcamStream.getTracks().forEach(t => t.stop());
+    webcamStream = null;
+  }
+  if (gazeInterval) {
+    clearInterval(gazeInterval);
+    gazeInterval = null;
+  }
+  state.webcamActive = false;
+  document.getElementById('webcamContainer').style.display = 'none';
+  document.getElementById('webcamPlaceholder').style.display = 'flex';
+  document.getElementById('webcamStartBtn').style.display = 'inline-flex';
+  document.getElementById('webcamStopBtn').style.display = 'none';
+  document.getElementById('gazeIndicator').style.display = 'none';
+  document.getElementById('gazeStats').style.display = 'none';
+}
+
+async function detectGaze() {
+  const video = document.getElementById('webcamVideo');
+  if (!video.videoWidth) return;
+
+  const canvas = document.getElementById('webcamCanvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0);
+
+  let lookingDown = false;
+
+  if (faceDetector) {
+    try {
+      const faces = await faceDetector.detect(canvas);
+      if (faces.length > 0) {
+        const face = faces[0].boundingBox;
+        const landmarks = faces[0].landmarks;
+
+        // Heuristic: if face is in lower portion of frame or nose/mouth landmarks
+        // suggest downward tilt, user is likely looking at keyboard
+        const faceCenterY = face.y + face.height / 2;
+        const frameCenterY = canvas.height / 2;
+
+        // If face center is significantly below frame center, looking down
+        if (faceCenterY > frameCenterY + canvas.height * 0.08) {
+          lookingDown = true;
+        }
+
+        // Also check if face appears larger (closer = looking down at keyboard)
+        const faceRatio = face.height / canvas.height;
+        if (faceRatio > 0.65) {
+          lookingDown = true;
+        }
+      }
+    } catch (e) {
+      // Fallback to brightness analysis
+      lookingDown = fallbackGazeDetect(ctx, canvas);
+    }
+  } else {
+    lookingDown = fallbackGazeDetect(ctx, canvas);
+  }
+
+  // Update gaze data
+  state.gazeData.total++;
+  if (lookingDown) {
+    state.gazeData.keyboard++;
+  } else {
+    state.gazeData.monitor++;
+  }
+
+  // Update UI
+  const dot = document.getElementById('gazeDot');
+  const text = document.getElementById('gazeText');
+  const t = i18n[state.language];
+
+  if (lookingDown) {
+    dot.className = 'gaze-dot keyboard';
+    text.textContent = t.gaze_keyboard_text;
+    text.style.color = 'var(--error)';
+  } else {
+    dot.className = 'gaze-dot monitor';
+    text.textContent = t.gaze_monitor_text;
+    text.style.color = 'var(--success)';
+  }
+
+  const monitorPct = Math.round((state.gazeData.monitor / state.gazeData.total) * 100);
+  const keyboardPct = 100 - monitorPct;
+  document.getElementById('monitorTime').textContent = monitorPct + '%';
+  document.getElementById('keyboardTime').textContent = keyboardPct + '%';
+}
+
+function fallbackGazeDetect(ctx, canvas) {
+  // Simple brightness/movement heuristic
+  // When looking down, upper part of frame is darker (ceiling vs face)
+  const w = canvas.width;
+  const h = canvas.height;
+  const upperData = ctx.getImageData(0, 0, w, Math.floor(h / 3)).data;
+  const lowerData = ctx.getImageData(0, Math.floor(h * 2 / 3), w, Math.floor(h / 3)).data;
+
+  let upperBright = 0, lowerBright = 0;
+  for (let i = 0; i < upperData.length; i += 16) {
+    upperBright += (upperData[i] + upperData[i+1] + upperData[i+2]) / 3;
+  }
+  for (let i = 0; i < lowerData.length; i += 16) {
+    lowerBright += (lowerData[i] + lowerData[i+1] + lowerData[i+2]) / 3;
+  }
+
+  upperBright /= (upperData.length / 16);
+  lowerBright /= (lowerData.length / 16);
+
+  // If lower part is significantly brighter (face is lower = looking down)
+  return lowerBright > upperBright * 1.3;
+}
+
+// ===== 20-20-20 REMINDER =====
+function toggleReminder() {
+  state.reminderEnabled = document.getElementById('reminderToggle').checked;
+  if (state.reminderEnabled) {
+    startReminder();
+  } else {
+    if (state.reminderInterval) clearInterval(state.reminderInterval);
+  }
+}
+
+function startReminder() {
+  if (state.reminderInterval) clearInterval(state.reminderInterval);
+  state.reminderInterval = setInterval(() => {
+    if (state.reminderEnabled) showReminder();
+  }, 20 * 60 * 1000); // 20 minutes
+}
+
+function showReminder() {
+  const overlay = document.getElementById('reminderOverlay');
+  overlay.classList.add('active');
+  let count = 20;
+  document.getElementById('reminderCountdown').textContent = count;
+  const timer = setInterval(() => {
+    count--;
+    document.getElementById('reminderCountdown').textContent = count;
+    if (count <= 0) {
+      clearInterval(timer);
+      closeReminder();
+    }
+  }, 1000);
+  playTone(440, 0.3, 'sine', 0.1);
+}
+
+function closeReminder() {
+  document.getElementById('reminderOverlay').classList.remove('active');
+}
+
+// ===== STATS PERSISTENCE =====
+function saveStats() {
+  localStorage.setItem('tm_stats', JSON.stringify(state.stats));
+}
+
+function loadStats() {
+  const saved = localStorage.getItem('tm_stats');
+  if (saved) {
+    Object.assign(state.stats, JSON.parse(saved));
+  }
+}
+
+function updateGlobalStats() {
+  document.getElementById('totalLessons').textContent = state.stats.lessonsCompleted;
+  document.getElementById('bestWpm').textContent = state.stats.bestWpm;
+  document.getElementById('avgAccuracy').textContent =
+    state.stats.sessions > 0 ? Math.round(state.stats.totalAccuracy / state.stats.sessions) + '%' : '0%';
+  const totalMins = Math.floor(state.stats.totalTime / 60);
+  const totalSecs = state.stats.totalTime % 60;
+  document.getElementById('totalTime').textContent = `${totalMins}:${totalSecs.toString().padStart(2, '0')}`;
+
+  // Session history
+  const hist = document.getElementById('sessionHistory');
+  if (state.stats.sessions > 0) {
+    hist.innerHTML = `<p>${state.language === 'fa' ? 'تعداد جلسات:' : 'Sessions:'} ${state.stats.sessions}</p>`;
+  } else {
+    hist.innerHTML = `<p>${state.language === 'fa' ? 'هنوز جلسه‌ای ثبت نشده.' : 'No sessions recorded yet.'}</p>`;
+  }
+}
+
+// ===== INITIALIZATION =====
+function init() {
+  // Load saved theme
+  const savedTheme = localStorage.getItem('tm_theme');
+  if (savedTheme) setTheme(savedTheme);
+
+  // Load stats
+  loadStats();
+
+  // Render
+  renderLessons();
+  renderKeyboard();
+  loadLesson(0);
+  applyI18n();
+  updateGlobalStats();
+
+  // Start reminder
+  startReminder();
+
+  // Auto-detect system preference for initial theme
+  if (!savedTheme) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark-warm');
+    }
+    const hour = new Date().getHours();
+    if (hour >= 20 || hour < 6) {
+      setTheme('night-filter');
+    }
+  }
+}
+
+// Start
+init();
+</script>
+</body>
+</html>
