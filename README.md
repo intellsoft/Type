@@ -75,10 +75,10 @@
 
 ```bash
 # ریپازیتوری را کلون کنید
-git clone https://github.com/YOUR_USERNAME/intellsoft-typemaster.git
+git clone https://github.com/intellsoft/type.git
 
 # وارد پوشه شوید
-cd intellsoft-typemaster
+cd type
 
 # فایل index.html را در مرورگر باز کنید
 # یا از GitHub Pages استفاده کنید
